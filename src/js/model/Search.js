@@ -5,13 +5,10 @@ export default class Search {
     this.query = query;
   }
 
-  async getResult() {
+  async getCities() {
     try {
       const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const response = await axios(`${proxy}https://api.openaq.org/v1/cities?limit=10&country=${this.query}&order_by=count&sort=desc`);
-      // const sorted = response.data.results.sort((a, b) => {
-      //   return a.count > b.count ? -1 : 1;
-      // });
+      const response = await axios(`${proxy}https://api.openaq.org/v1/cities?country=${this.query}&limit=10`);
       this.result = response.data.results;
     } catch (error) {
       alert(`ERROR SEARCH: ${error}`);

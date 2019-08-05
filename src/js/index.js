@@ -1,4 +1,5 @@
 import Search from './model/Search';
+import City from './model/City';
 import * as searchView from './view/searchView';
 import * as render from './view/render';
 import {
@@ -33,16 +34,23 @@ const controlSearch = async () => {
         alert('COUNTRY ERROR');
     }
     state.search = new Search(searchQuery);
-
     // 3) Prepare UI for results
     searchView.clearResults();
     // 4) Search for cities
     try {
-      await state.search.getResult();
+      await state.search.getCities();
       console.table(state.search.result);
     } catch (error) {
       console.log('ERROR A:', error)
     }
+    state.cities = new City(state.search.result);
+    try {
+      await state.cities.getDescr();
+      console.table(state.search.result);
+    } catch (err) {
+      console.log('ERROR B:', err)
+    }
+
     // 5) Render results on UI
     render.renderResult(state.search.result);
   }

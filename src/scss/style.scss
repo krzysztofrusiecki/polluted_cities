@@ -58,12 +58,13 @@ body {
     }
 
     p {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 80%;
       width: 80%;
       text-align: justify;
+
+      & * {
+        display: inline;
+      }
     }
 
     &__header {
