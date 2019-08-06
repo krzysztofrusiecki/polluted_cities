@@ -61,6 +61,12 @@ body {
       height: 80%;
       width: 80%;
       text-align: justify;
+      overflow: hidden;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
 
       & * {
         display: inline;
@@ -85,6 +91,7 @@ body {
       height: 87.5%;
       border: 1px solid yellow;
       font-size: 2rem;
+      overflow: hidden;
     }
   }
 }

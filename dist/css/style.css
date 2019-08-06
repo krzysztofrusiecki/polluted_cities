@@ -71,6 +71,12 @@ body {
   height: 80%;
   width: 80%;
   text-align: justify;
+  overflow: hidden;
+}
+
+.wrapper .cities p a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .wrapper .cities p * {
@@ -107,6 +113,7 @@ body {
   height: 87.5%;
   border: 1px solid yellow;
   font-size: 2rem;
+  overflow: hidden;
 }
 
 footer {

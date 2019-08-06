@@ -18,16 +18,16 @@ const controlSearch = async () => {
   if (query) {
     let searchQuery;
     switch (query) {
-      case 'Poland':
+      case 'poland':
         searchQuery = 'PL';
         break;
-      case 'Spain':
+      case 'spain':
         searchQuery = 'ES';
         break;
-      case 'France':
+      case 'france':
         searchQuery = 'FR';
         break;
-      case 'Germany':
+      case 'germany':
         searchQuery = 'DE';
         break;
       default:
@@ -43,7 +43,7 @@ const controlSearch = async () => {
     } catch (error) {
       console.log('ERROR A:', error)
     }
-    state.cities = new City(state.search.result);
+    state.cities = new City(state.search.result, searchQuery);
     try {
       await state.cities.getDescr();
       console.table(state.search.result);
