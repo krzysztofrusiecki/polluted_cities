@@ -5,9 +5,9 @@ import {
 export const renderCity = (citySnippet, cityURL, cityKey) => {
   let snip;
   let flag;
-  if (typeof citySnippet.extract == undefined) snip = 'No description';
+  if (typeof citySnippet.extract == undefined) snip = 'No description available';
   else if (cityKey == (-1)) {
-    snip = 'Not found';
+    snip = 'No description available';
     flag = true;
   } else snip = citySnippet.extract.slice(0, 240);
   let html;

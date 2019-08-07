@@ -9,12 +9,26 @@ import {
   clearResults
 } from '../../../../udemy/complete-javascript-course-master/9-forkify/final/src/js/views/searchView';
 
+let pageData = JSON.parse(window.localStorage.getItem('data'));
+const countries = ['Poland', 'Germany', 'Spain', 'France'];
+
 const state = {};
+
+const page = (pageData) => {
+  if (!pageData) {
+    controlSearch();
+  } else {
+    render.renderResult(pageData);
+  }
+}
+
+searchView.clearResults();
+page(pageData);
 
 const controlSearch = async () => {
   // 1) Get query from view
   const query = searchView.getInput();
-  // 2) New search object and add to state
+  // 2) New search
   if (query) {
     let searchQuery;
     switch (query) {
@@ -53,6 +67,10 @@ const controlSearch = async () => {
 
     // 5) Render results on UI
     render.renderResult(state.search.result);
+
+    // 6) Put result to localstorage
+    window.localStorage.setItem('data', JSON.stringify(state.search.result));
+    console.log(state.search.result);
   }
 
 }
