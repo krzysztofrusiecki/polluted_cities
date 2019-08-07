@@ -27,7 +27,7 @@ page(pageData);
 
 const controlSearch = async () => {
   // 1) Get query from view
-  const query = searchView.getInput();
+  const query = searchView.getInput(countries);
   // 2) New search
   if (query) {
     let searchQuery;

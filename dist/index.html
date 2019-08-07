@@ -14,7 +14,14 @@
 <body>
   <div class="wrapper">
     <div class="autocomplete">
-      <input type="text" placeholder="Country" required>
+      <input type="text" list="datalist" placeholder="Country" required>
+      <p><i class="fas fa-times"></i></p>
+      <datalist id="datalist">
+        <option value="Poland"></option>
+        <option value="Germany"></option>
+        <option value="France"></option>
+        <option value="Spain"></option>
+      </datalist>
     </div>
     <div class="cities">
       <div class="cities__city">
