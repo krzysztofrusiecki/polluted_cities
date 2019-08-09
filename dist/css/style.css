@@ -67,16 +67,23 @@ body {
 }
 
 .wrapper .autocomplete .container {
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 10px;
-  width: 70%;
+  width: 90%;
   height: 40px;
   color: black;
 }
 
 .wrapper .autocomplete .container input {
   height: 100%;
-  width: 100%;
+  width: 70%;
   display: block;
   line-height: 40px;
   font-size: 1.8rem;
@@ -89,6 +96,19 @@ body {
 
 .wrapper .autocomplete .container input::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.wrapper .autocomplete .container .submit {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-size: 1.8rem;
+  outline: none;
+  background-color: #fff;
+  border: 2px solid #86c232;
+  border-radius: 10px;
 }
 
 .wrapper .autocomplete .container p {
@@ -265,6 +285,15 @@ footer .socials .fab {
   .wrapper .autocomplete input:hover {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
+  }
+  .wrapper .autocomplete .submit {
+    cursor: pointer;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+  }
+  .wrapper .autocomplete .submit:hover {
+    background-color: #86c232;
+    color: #fff;
   }
   .wrapper .cities {
     width: 80%;

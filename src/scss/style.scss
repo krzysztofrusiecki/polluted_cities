@@ -52,15 +52,17 @@ body {
     }
 
     .container {
-      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
       margin-top: 10px;
-      width: 70%;
+      width: 90%;
       height: 40px;
       color: black;
 
       input {
         height: 100%;
-        width: 100%;
+        width: 70%;
         display: block;
         line-height: 40px;
         font-size: 1.8rem;
@@ -73,6 +75,19 @@ body {
         &::-webkit-calendar-picker-indicator {
           display: none;
         }
+      }
+
+      .submit {
+        width: 25%;
+        height: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 40px;
+        font-size: 1.8rem;
+        outline: none;
+        background-color: #fff;
+        border: 2px solid $yellowy;
+        border-radius: 10px;
       }
 
       p {
@@ -200,6 +215,16 @@ footer {
 
         &:hover {
           transform: scale(1.1)
+        }
+      }
+
+      .submit {
+        cursor: pointer;
+        transition: .1s linear;
+
+        &:hover {
+          background-color: $yellowy;
+          color: #fff;
         }
       }
     }

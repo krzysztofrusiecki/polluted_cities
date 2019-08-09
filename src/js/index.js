@@ -95,3 +95,9 @@ elements.input.addEventListener('keypress', e => {
   cities = render.renderDOM();
   reloadListeners(cities);
 });
+
+elements.submit.addEventListener('click', e => {
+  controlSearch();
+  cities = render.renderDOM();
+  reloadListeners(cities);
+});
