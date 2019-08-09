@@ -173,6 +173,8 @@ body {
   font-weight: 300;
   -webkit-box-shadow: inset 0px 0px 3px #444;
           box-shadow: inset 0px 0px 3px #444;
+  -webkit-transition: .1s linear;
+  transition: .1s linear;
 }
 
 .wrapper .cities .city__body p {
@@ -240,30 +242,59 @@ footer .socials .fab {
 
 @media (min-width: 768px) {
   .wrapper {
-    margin: 0 auto;
+    max-width: 1024px;
     width: 80vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .wrapper .autocomplete {
     width: 400px;
   }
+  .wrapper .autocomplete input {
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+  }
+  .wrapper .autocomplete input:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
   .wrapper .cities {
-    width: 70%;
+    width: 80%;
     margin-top: 40px;
   }
-  .wrapper .cities__city {
+  .wrapper .cities .city {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
   }
-  .wrapper .cities__header {
-    width: 50%;
-    height: 100%;
+  .wrapper .cities .city__header {
+    height: 60px;
+    cursor: pointer;
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
   }
-  .wrapper .cities__body {
-    width: 50%;
-    height: 100%;
+  .wrapper .cities .city__header:hover {
+    background-color: #ccc;
+    color: #86c232;
+  }
+  .wrapper .cities .city__header p {
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+  }
+  .wrapper .cities .city__header p:hover {
+    border-bottom: 1px solid #61892f;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   footer .socials .fab {
     -webkit-transition: .1s linear;
