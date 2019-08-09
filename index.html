@@ -12,10 +12,12 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <main class="wrapper">
     <div class="autocomplete">
-      <input type="text" list="datalist" placeholder="Country" required>
-      <p><i class="fas fa-times"></i></p>
+      <h1>Please select country:</h1>
+      <div class="container"><input type="text" list="datalist" placeholder="Country" required>
+        <p><i class="fas fa-times"></i></p>
+      </div>
       <datalist id="datalist">
         <option value="Poland"></option>
         <option value="Germany"></option>
@@ -24,13 +26,8 @@
       </datalist>
     </div>
     <div class="cities">
-      <div class="cities__city">
-        <div class="cities__header"></div>
-        <div class="cities__body">
-        </div>
-      </div>
     </div>
-  </div>
+  </main>
 
 
   <footer>

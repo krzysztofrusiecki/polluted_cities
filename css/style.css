@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,700&display=swap&subset=latin-ext");
+/* VARIABLES */
 /* Background pattern from Toptal Subtle Patterns */
 * {
   margin: 0;
@@ -9,14 +10,14 @@
 
 html {
   font-size: 10px;
-  font-family: "Ubuntu", sans-serif;
 }
 
 body {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: repeat center url("../assets/use_your_illusion.png");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), repeat center url("../assets/use_your_illusion.png");
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), repeat center url("../assets/use_your_illusion.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,14 +32,17 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   overflow-x: hidden;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .wrapper {
-  position: relative;
-  margin-top: 30px;
-  width: 80vw;
+  padding-top: 10px;
+  width: 100vw;
   min-height: 85vh;
-  border: 1px solid #fff;
+  padding-bottom: 40px;
+}
+
+.wrapper .autocomplete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,84 +53,109 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: 40px;
-}
-
-.wrapper .autocomplete {
-  margin-top: 20px;
-  width: 80%;
-  height: 40px;
-  text-align: center;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.wrapper .autocomplete input {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0 10px;
-  display: block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
+  height: 120px;
+}
+
+.wrapper .autocomplete h1 {
+  font-size: 2.4rem;
+  color: #86c232;
+  font-weight: 300;
+}
+
+.wrapper .autocomplete .container {
+  position: relative;
+  margin-top: 10px;
+  width: 70%;
+  height: 40px;
+  color: black;
+}
+
+.wrapper .autocomplete .container input {
   height: 100%;
+  width: 100%;
+  display: block;
   line-height: 40px;
   font-size: 1.8rem;
-  border: none;
-  border-bottom: 1px solid #999;
   outline: none;
-  color: #fff;
-  background-color: transparent;
+  background-color: #fff;
+  border: 2px solid #86c232;
+  border-radius: 10px;
+  padding-left: 15px;
 }
 
-.wrapper .autocomplete input::-webkit-calendar-picker-indicator {
+.wrapper .autocomplete .container input::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-.wrapper .autocomplete p {
+.wrapper .autocomplete .container p {
   position: absolute;
   top: 50%;
-  right: 5%;
-  font-size: 18px;
-  display: inline;
-  color: #999;
+  right: 8%;
+  font-size: 1.8rem;
+  color: #222;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 
 .wrapper .cities {
-  margin: 20px auto 0;
-  width: 90%;
-}
-
-.wrapper .cities__city {
   width: 100%;
-  height: 300px;
-  border: 1px solid red;
-  color: #aaa;
+  min-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.wrapper .cities p {
-  height: 80%;
-  width: 80%;
-  text-align: justify;
-  overflow: hidden;
+.wrapper .cities .city {
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: .5s linear;
+  transition: .5s linear;
 }
 
-.wrapper .cities p a {
+.wrapper .cities .city__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 60px;
+  font-size: 3rem;
+  -webkit-box-shadow: inset 0px 0px 3px #444;
+          box-shadow: inset 0px 0px 3px #444;
+  font-style: italic;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.wrapper .cities .city__header a {
   text-decoration: none;
-  color: #fff;
+  color: #222;
 }
 
-.wrapper .cities p * {
-  display: inline;
-}
-
-.wrapper .cities__header {
+.wrapper .cities .city__body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,27 +165,25 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 0;
   width: 100%;
-  height: 12.5%;
-  border: 1px solid blue;
-  font-size: 4rem;
-}
-
-.wrapper .cities__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 87.5%;
-  border: 1px solid yellow;
-  font-size: 2rem;
+  font-size: 1.8rem;
   overflow: hidden;
+  color: #222;
+  font-weight: 300;
+  -webkit-box-shadow: inset 0px 0px 3px #444;
+          box-shadow: inset 0px 0px 3px #444;
+}
+
+.wrapper .cities .city__body p {
+  margin: 20px 15px;
+}
+
+.wrapper .cities .city .visible {
+  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 footer {
@@ -211,9 +238,13 @@ footer .socials .fab {
   color: #999;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 80vw;
+  }
   .wrapper .autocomplete {
-    width: 40%;
+    width: 400px;
   }
   .wrapper .cities {
     width: 70%;
