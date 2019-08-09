@@ -13,7 +13,10 @@ export default class Search {
       // const response = await axios(`${proxy}https://api.openaq.org/v1/latest?country=${this.query}&parameter=pm10&order_by=measurements[0][value]&sort=desc&limit=10`);
       // this.result = response.data
     } catch (error) {
-      alert(`ERROR SEARCH: ${error}`);
+      if (!alert(`SOMETHING WENT WRONG!`)) {
+        window.location.reload();
+        window.localStorage.clear()
+      }
     }
   }
 }

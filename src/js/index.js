@@ -5,29 +5,38 @@ import * as render from './view/render';
 import {
   elements
 } from './view/base';
-import {
-  clearResults
-} from '../../../../udemy/complete-javascript-course-master/9-forkify/final/src/js/views/searchView';
 
 let pageData = JSON.parse(window.localStorage.getItem('data'));
 const countries = ['Poland', 'Germany', 'Spain', 'France'];
-
 const state = {};
+let cities = render.renderDOM();
+elements.input.value = '';
+
 
 const page = (pageData) => {
   if (!pageData) {
     controlSearch();
   } else {
     render.renderResult(pageData);
+    cities = render.renderDOM();
+    reloadListeners(cities);
   }
 }
 
-searchView.clearResults();
-page(pageData);
+const reloadListeners = (cities) => {
+  cities.forEach(element => {
+    element.addEventListener('click', event => {
+      let style = event.target.parentNode.lastElementChild.style
+      if (style.flexGrow !== '1') style.cssText = 'height: auto; flex-grow: 1;';
+      else style.cssText = 'height: 0; flex-grow: 0;';
+    });
+  });
+}
 
 const controlSearch = async () => {
   // 1) Get query from view
   const query = searchView.getInput(countries);
+  searchView.clearInput();
   // 2) New search
   if (query) {
     let searchQuery;
@@ -53,28 +62,35 @@ const controlSearch = async () => {
     // 4) Search for cities
     try {
       await state.search.getCities();
-      console.table(state.search.result);
+      reloadListeners(cities);
     } catch (error) {
       console.log('ERROR A:', error)
     }
     state.cities = new City(state.search.result, searchQuery);
     try {
       await state.cities.getDescr();
-      console.table(state.search.result);
+      reloadListeners(cities);
     } catch (err) {
       console.log('ERROR B:', err)
     }
 
     // 5) Render results on UI
     render.renderResult(state.search.result);
-
+    cities = render.renderDOM();
+    reloadListeners(cities);
     // 6) Put result to localstorage
+    elements.input.value = '';
     window.localStorage.setItem('data', JSON.stringify(state.search.result));
-    console.log(state.search.result);
   }
 
 }
 
+
+searchView.clearResults();
+page(pageData);
+
 elements.input.addEventListener('keypress', e => {
   if (e.keyCode === 13) controlSearch();
+  cities = render.renderDOM();
+  reloadListeners(cities);
 });

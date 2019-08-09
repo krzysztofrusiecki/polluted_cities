@@ -18,6 +18,13 @@ export const getInput = (places) => {
   return elements.input.value.toLowerCase();
 }
 
+export const clearInput = () => {
+  const datalist = document.getElementById('datalist');
+  while (datalist.firstChild) {
+    datalist.removeChild(datalist.firstChild);
+  }
+}
+
 export const clearResults = () => {
   elements.cities.innerHTML = '';
 };

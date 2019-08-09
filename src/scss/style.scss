@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,700&display=swap&subset=latin-ext');
 
+/* VARIABLES */
+$greeny: #61892f;
+$yellowy: #86c232;
+$grey: #474b4f;
+$light-grey: #ccc;
+
 /* Background pattern from Toptal Subtle Patterns */
 
 * {
@@ -10,119 +16,130 @@
 
 html {
   font-size: 10px;
-  font-family: "Ubuntu", sans-serif;
 }
 
 body {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: repeat center url('../assets/use_your_illusion.png');
+  background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1)), repeat center url('../assets/use_your_illusion.png');
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   overflow-x: hidden;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .wrapper {
-  position: relative;
-  margin-top: 30px;
-  width: 80vw;
+  padding-top: 10px;
+  width: 100vw;
   min-height: 85vh;
-  border: 1px solid #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-bottom: 40px;
 
-
   .autocomplete {
-    margin-top: 20px;
-    width: 80%;
-    height: 40px;
-    text-align: center;
-    position: relative;
     display: flex;
-    flex-wrap: nowrap;
-    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
 
-    input {
-      box-sizing: border-box;
-      padding: 0 10px;
-      display: block;
-      width: 100%;
-      height: 100%;
-      line-height: 40px;
-      font-size: 1.8rem;
-      border: none;
-      border-bottom: 1px solid #999;
-      outline: none;
-      color: #fff;
-      background-color: transparent;
-
-      &::-webkit-calendar-picker-indicator {
-        display: none;
-      }
+    h1 {
+      font-size: 2.4rem;
+      color: $yellowy;
+      font-weight: 300;
     }
 
-    p {
-      position: absolute;
-      top: 50%;
-      right: 5%;
-      font-size: 18px;
-      display: inline;
-      color: #999;
-      transform: translateY(-50%)
+    .container {
+      position: relative;
+      margin-top: 10px;
+      width: 70%;
+      height: 40px;
+      color: black;
+
+      input {
+        height: 100%;
+        width: 100%;
+        display: block;
+        line-height: 40px;
+        font-size: 1.8rem;
+        outline: none;
+        background-color: #fff;
+        border: 2px solid $yellowy;
+        border-radius: 10px;
+        padding-left: 15px;
+
+        &::-webkit-calendar-picker-indicator {
+          display: none;
+        }
+      }
+
+      p {
+        position: absolute;
+        top: 50%;
+        right: 8%;
+        font-size: 1.8rem;
+        color: #222;
+        transform: translateY(-50%)
+      }
     }
   }
 
   .cities {
-    margin: 20px auto 0;
-    width: 90%;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    &__city {
+    .city {
       width: 100%;
-      height: 300px;
-      border: 1px solid red;
-      color: #aaa;
-    }
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      transition: .5s linear;
 
-    p {
-      height: 80%;
-      width: 80%;
-      text-align: justify;
-      overflow: hidden;
+      &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        font-size: 3rem;
+        box-shadow: inset 0px 0px 3px #444;
+        font-style: italic;
+        transition: .2s linear;
 
-      a {
-        text-decoration: none;
-        color: #fff;
+
+        a {
+          text-decoration: none;
+          color: #222;
+        }
       }
 
-      & * {
-        display: inline;
+      &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0;
+        width: 100%;
+        font-size: 1.8rem;
+        overflow: hidden;
+        color: #222;
+        font-weight: 300;
+        box-shadow: inset 0px 0px 3px #444;
+
+        p {
+          margin: 20px 15px;
+
+        }
       }
-    }
 
-    &__header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 12.5%;
-      border: 1px solid blue;
-      font-size: 4rem;
-    }
-
-    &__body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 87.5%;
-      border: 1px solid yellow;
-      font-size: 2rem;
-      overflow: hidden;
+      .visible {
+        height: auto;
+        flex-grow: 1;
+      }
     }
   }
 }
@@ -166,11 +183,14 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
   .wrapper {
+    margin: 0 auto;
+    width: 80vw;
+
     .autocomplete {
-      width: 40%;
+      width: 400px;
     }
 
     .cities {
