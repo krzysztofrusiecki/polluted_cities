@@ -36,7 +36,7 @@ const reloadListeners = (cities) => {
 const controlSearch = async () => {
   // 1) Get query from view
   const query = searchView.getInput(countries);
-  searchView.clearInput();
+
   // 2) New search
   if (query) {
     let searchQuery;
@@ -78,6 +78,7 @@ const controlSearch = async () => {
     render.renderResult(state.search.result);
     cities = render.renderDOM();
     reloadListeners(cities);
+    searchView.clearInput(countries);
     // 6) Put result to localstorage
     elements.input.value = '';
     window.localStorage.setItem('data', JSON.stringify(state.search.result));

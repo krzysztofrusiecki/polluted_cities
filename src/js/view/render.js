@@ -15,16 +15,16 @@ export const renderCity = (citySnippet, cityURL, cityKey) => {
 
   if (!isMobile()) {
     if (!flag) {
-      html = `<div class="cities__city">
-    <div class="cities__header"><p><a href="${cityURL}" target="_blank">${citySnippet.title}</a></p></div>
-    <div class="cities__body">
+      html = `<div class="city">
+    <div class="city__header"><p><a href="${cityURL}" target="_blank">${citySnippet.title}</a></p></div>
+    <div class="city__body">
     <p>${snip}</p>
     </div>
     </div>`;
     } else {
-      html = `<div class="cities__city">
-    <div class="cities__header"><p><a href="#" onclick="return false;" target="_blank">${citySnippet.title}</a></p></div>
-    <div class="cities__body">
+      html = `<div class="city">
+    <div class="city__header"><p><a href="#" onclick="return false;" target="_blank">${citySnippet.title}</a></p></div>
+    <div class="city__body">
     <p>${snip}</p>
     </div>
     </div>`;

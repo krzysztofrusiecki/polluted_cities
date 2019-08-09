@@ -2,8 +2,7 @@ import {
   elements
 } from './base';
 
-
-export const getInput = (places) => {
+const autocomplete = (places) => {
   let value = elements.input.value;
   document.getElementById('datalist').innerHTML = '';
   let l = value.length;
@@ -15,14 +14,20 @@ export const getInput = (places) => {
       document.getElementById("datalist").appendChild(node);
     }
   }
+  value = elements.input.value;
+}
+
+export const getInput = (places) => {
+  autocomplete(places);
   return elements.input.value.toLowerCase();
 }
 
-export const clearInput = () => {
+export const clearInput = (places) => {
   const datalist = document.getElementById('datalist');
   while (datalist.firstChild) {
     datalist.removeChild(datalist.firstChild);
   }
+  autocomplete(places);
 }
 
 export const clearResults = () => {
